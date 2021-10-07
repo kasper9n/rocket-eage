@@ -1,0 +1,38 @@
+{
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "svelte-kit dev",
+    "build": "svelte-kit build",
+    "preview": "svelte-kit preview",
+    "check": "svelte-check",
+    "lint": "prettier --write src *.js && eslint --fix src *.js"
+  },
+  "devDependencies": {
+    "@sveltejs/adapter-static": "^1.0.0-next.20",
+    "@sveltejs/kit": "^1.0.0-next.173",
+    "@typescript-eslint/eslint-plugin": "^4.31.2",
+    "@typescript-eslint/parser": "^4.31.2",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-svelte3": "^3.2.1",
+    "prettier": "^2.4.1",
+    "prettier-plugin-svelte": "^2.4.0",
+    "sass": "^1.42.1",
+    "svelte": "^3.43.0",
+    "svelte-check": "^2.2.6",
+    "svelte-preprocess": "^4.9.5",
+    "typescript": "^4.4.3"
+  },
+  "prettier": {
+    "printWidth": 100,
+    "semi": false,
+    "singleQuote": true,
+    "htmlWhitespaceSensitivity": "strict",
+    "svelteSortOrder": "options-scripts-markup-styles",
+    "svelteStrictMode": false,
+    "svelteAllowShorthand": true,
+    "svelteBracketNewLine": false,
+    "svelteIndentScriptAndStyle": true
+  }
+}
