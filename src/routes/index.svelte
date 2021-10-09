@@ -14,10 +14,13 @@
     y = newY
     limit()
   }
+  $: maxX = 1000 - boxX / 2
+  $: minX = 0 + boxX / 2
+  $: maxY = 500 - boxY / 2
   function limit() {
-    if (x > 1000 - boxX / 2) x = 1000 - boxX / 2
-    if (x < 0 + boxX / 2) x = 0 + boxX / 2
-    if (y > 500 - boxY / 2) y = 500 - boxY / 2
+    if (x > maxX) x = 1000 - boxX / 2
+    if (x < minX) x = 0 + boxX / 2
+    if (y > maxY) y = maxY
     if (y < 0 + boxY / 2) y = 0 + boxY / 2
   }
   function keypress(e: KeyboardEvent) {
@@ -26,6 +29,31 @@
     if (e.key === 'd') setPos(x + 10, y)
     if (e.key === 'a') setPos(x - 10, y)
   }
+  let movePerMillisecond = 0.5
+  let last = Date.now()
+  let movingRight = true
+  onMount(() => {
+    function step() {
+      let now = Date.now()
+      let difference = now - last
+      if (movingRight === true) {
+        x += movePerMillisecond * difference
+        if (x > maxX) {
+          movingRight = false
+          x = maxX - (x - maxX)
+        }
+      } else {
+        x -= movePerMillisecond * difference
+        if (x < minX) {
+          movingRight = true
+          x = minX + (minX - x)
+        }
+      }
+      window.requestAnimationFrame(step)
+      last = now
+    }
+    window.requestAnimationFrame(step)
+  })
   let sliderValue = 20
   function sliderChange(newValue: number) {
     boxX = newValue
@@ -37,7 +65,7 @@
 
 <svelte:window on:keypress={keypress} />
 
-<input type="range" min="1" max="499" bind:value={sliderValue} />
+<input type="range" min="1" max="400" bind:value={sliderValue} />
 <div class="game">
   <div class="box" style="left: {x}px; top: {y}px; width: {boxX}px; height: {boxY}px;" />
 </div>
