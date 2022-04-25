@@ -75,17 +75,20 @@
 
 <svelte:window on:keypress={keypress} />
 
-<input type="range" min="1" max="400" bind:value={sliderValue} />
-Points: {points}
-tooHigh: {tooHigh}
-tooLow: {tooLow}
-<div class="outer">
-  <div class="game">
-    <div
-      class="left"
-      style="left: {4 / 2}px; top: {leftY +
-        leftHeight / 2}px; width: 4px; height: {leftHeight}px;" />
-    <div class="box" style="left: {x}px; top: {y}px; width: {boxX}px; height: {boxY}px;" />
+<div>
+  <input type="range" min="1" max="400" bind:value={sliderValue} />
+  Points: {points}
+  tooHigh: {tooHigh}
+  tooLow: {tooLow}
+  <div class="outer">
+    <div class="game">
+      <div
+        class="left"
+        style="left: {4 / 2}px; top: {leftY +
+          leftHeight / 2}px; width: 4px; height: {leftHeight}px;"
+      />
+      <div class="box" style="left: {x}px; top: {y}px; width: {boxX}px; height: {boxY}px;" />
+    </div>
   </div>
 </div>
 
