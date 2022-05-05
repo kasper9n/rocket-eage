@@ -15,6 +15,9 @@
     // This creates a texture from a 'bunny.png' image
     const bunny = new PIXI.Sprite(resources.bunny.texture)
 
+    bunny.width = 50
+    bunny.height = 150
+
     // Setup the position of the bunny
     bunny.x = app.renderer.width / 2
     bunny.y = app.renderer.height / 2
