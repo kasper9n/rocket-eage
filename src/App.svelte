@@ -1,6 +1,6 @@
 <script lang="ts">
-  import Pong from './routes/pong.svelte'
-  import Pixi from './routes/pixi.svelte'
+  import Pong from './pong.svelte'
+  import Phaser from './phaser/phaser.svelte'
 
   let loading = true
   let loadingText = 'Loading'
@@ -15,7 +15,7 @@
 {#if loading}
   <p>{loadingText}</p>
 {:else if window.location.pathname === '/'}
-  <Pixi />
+  <Phaser />
 {:else if window.location.pathname === '/pong'}
   <Pong />
 {:else}
